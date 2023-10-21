@@ -1,5 +1,7 @@
-{% extends 'main.html' %} {% block title %} Django GPT {% endblock %} {% block
-content %}
+{% extends 'main.html' %}
+{% block title %} Image-To-Sketch {% endblock %}
+
+{% block content %}
 
 <div class="h-full overflow-hidden py-4">
   <div class="h-full overflow-y-auto">
@@ -194,9 +196,10 @@ content %}
   <div class="mt-20">
     <textarea
       cols="100"
+      placeholder="Write something..."
       class="h-35 w-full my-20 border-2 border-black p-10 text-14 font-sans font-Lato"
     ></textarea>
   </div>
   <button class="bg-green-500 text-white rounded-xl p-2 text-xl">Send</button>
-</div>
+</div> 
 {% endblock %}
