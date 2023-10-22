@@ -1,0 +1,48 @@
+{% extends 'main.html' %} {% load tailwind_filters %} {% block title %}
+Django GPT {% endblock %} {% block content %}
+<h1 class="text-center mt-10 text-4xl text-black">Login</h1>
+<form class="form" action="" method="POST">
+  {% csrf_token %}
+  <div id="username" class="mb-3">
+    <label for="username" class="block text-gray-700 text-sm font-bold mb-2">
+      Username<span class="asteriskField"></span>
+    </label>
+    <input
+      type="text"
+      name="username"
+      maxlength="150"
+      autocapitalize="none"
+      autocomplete="username"
+      autofocus=""
+      class="textinput w-full py-2 border text-gray-700 rounded-lg appearance-none bg-white border-gray-300 px-4 block leading-normal focus:outline-none"
+      required=""
+      id="username"
+    />
+  </div>
+  <div id="div_id_password" class="mb-3">
+    <label
+      for="id_password1"
+      class="block text-gray-700 text-sm font-bold mb-2"
+    >
+      Password<span class="asteriskField"></span>
+    </label>
+    <input
+      type="password"
+      name="password"
+      autocomplete="new-password"
+      class="passwordinput w-full py-2 border text-gray-700 rounded-lg appearance-none bg-white border-gray-300 px-4 block leading-normal focus:outline-none"
+      required=""
+      id="password"
+    />
+  </div>
+
+  <button
+    class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+  >
+    Login
+  </button>
+</form>
+<div class="mt-4">
+  <span>No account ? <a href="/accounts/register">Register here</a></span>
+</div>
+{% endblock %}
