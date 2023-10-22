@@ -1,8 +1,8 @@
-const messagesList = document.querySelector('.messages-list');
-const messageForm = document.querySelector('.message-form');
-const messageInput = document.querySelector('.message-input');
+const messagesList = document.querySelector(".messages-list");
+const messageForm = document.querySelector(".message-form");
+const messageInput = document.querySelector(".message-input");
 
-messageForm.addEventListener('submit', (event) => {
+messageForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const message = messageInput.value.trim();
@@ -10,8 +10,8 @@ messageForm.addEventListener('submit', (event) => {
     return;
   }
 
-  const messageItem = document.createElement('li');
-  messageItem.classList.add('message', 'sent');
+  const messageItem = document.createElement("li");
+  messageItem.classList.add("message", "sent");
   messageItem.innerHTML = `
       <div class="message-text">
           <div class="message-sender">
@@ -23,21 +23,22 @@ messageForm.addEventListener('submit', (event) => {
       </div>`;
   messagesList.appendChild(messageItem);
 
-  messageInput.value = '';
+  messageInput.value = "";
 
-  fetch('', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  fetch("", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({
-      'csrfmiddlewaretoken': document.querySelector('[name=csrfmiddlewaretoken]').value,
-      'message': message
-    })
+      csrfmiddlewaretoken: document.querySelector("[name=csrfmiddlewaretoken]")
+        .value,
+      message: message,
+    }),
   })
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       const response = data.response;
-      const messageItem = document.createElement('li');
-      messageItem.classList.add('message', 'received');
+      const messageItem = document.createElement("li");
+      messageItem.classList.add("message", "received");
       messageItem.innerHTML = `
       <div class="message-text">
           <div class="message-sender">
