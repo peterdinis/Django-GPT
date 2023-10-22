@@ -45,7 +45,10 @@ INSTALLED_APPS = [
 
     #apps
     'chatbot',
-    'accounts'
+    'accounts',
+
+    ### packages
+    "debug_toolbar"
 ]
 
 MIDDLEWARE = [
